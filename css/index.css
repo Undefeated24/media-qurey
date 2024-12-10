@@ -1,0 +1,139 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0);
+  color: white;
+  padding: 10px;
+  position: relative;
+}
+ul {
+  display: none;
+  list-style: none;
+  gap: 15px;
+}
+button,
+li {
+  cursor: pointer;
+}
+button {
+  background-color: rgb(132, 34, 9);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px 10px 20px;
+  color: white;
+  font-size: 15px;
+  font-weight: bold;
+  transition: scale 0.3s ease-in-out;
+  display: none;
+}
+button:hover {
+  scale: 1.2;
+}
+li {
+  position: relative;
+  padding: 5px;
+}
+
+li:hover {
+  color: rgb(132, 34, 9);
+}
+/* img {
+  width: 20px;
+} */
+.hamburger {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+
+.hamburger span {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  transition: all .3s ease-in-out;
+}
+input {
+  display: none;
+}
+input:checked ~ .hamburger {
+  .First {
+    transform: translateY(8px) rotate(135deg);
+  }
+  .Second{
+    opacity: 0;
+  }
+  .Third{
+    transform: translateY(-5px) rotate(225deg);
+  }
+}
+input:checked ~ ul{
+    display: block;
+}
+.users{
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 20px;
+}
+.user{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 10px;
+}
+.user img{
+    border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  ul,
+  button {
+    display: flex;
+  }
+  .hamburger {
+    display: none;
+  }
+  li::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 1px;
+    background-color: rgb(132, 34, 9);
+    transition: width 0.2s ease-in-out;
+  }
+  li:hover::before {
+    width: 100%;
+  }
+  .users{
+    grid-template-columns: repeat(4, auto);
+  }
+}
+@media (max-width: 767px) {
+  ul {
+    position: absolute;
+    padding-top: 15px;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0);
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  li {
+    padding: 5px 10px;
+  }
+}
